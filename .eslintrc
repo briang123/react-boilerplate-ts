@@ -5,12 +5,17 @@
     "sourceType": "module",
     "ecmaVersion": 8
   },
-  "plugins": ["@typescript-eslint"],
+  "plugins": [
+    "@typescript-eslint"
+  ],
   "env": {
-    "node": true
+    "browser": true,
+    "node": true,
+    "es6": true
   },
   "extends": [
     "airbnb-base",
+    "prettier",
     "plugin:import/typescript",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
@@ -18,6 +23,15 @@
     "prettier/@typescript-eslint"
   ],
   "rules": {
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "local",
+        "args": "none"
+      }
+    ],
+    "no-plusplus": "off",
+    "no-underscore-dangle": "off",
     "radix": 0,
     "no-restricted-syntax": 0,
     "no-await-in-loop": 0,
@@ -33,7 +47,10 @@
     // Allows us to lint absolute imports within codebase
     "import/resolver": {
       "node": {
-        "moduleDirectory": ["node_modules", "src/"]
+        "moduleDirectory": [
+          "node_modules",
+          "src/"
+        ]
       }
     }
   }
